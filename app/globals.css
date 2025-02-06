@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.div-line {
+  width: 1px;
+  background-color: #AEAEAE;
+  margin-inline: 1.77rem;
+}
