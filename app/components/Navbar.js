@@ -1,121 +1,91 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
+import { Bars2Icon, ArrowUpIcon } from '@heroicons/react/24/outline';
+
 import { gsap } from 'gsap';
+import { useState } from 'react';
+import { useGSAP } from '@gsap/react';
 
-import { useRef, useEffect, useState } from 'react';
+gsap.registerPlugin(useGSAP);
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const navRef = useRef(null);
-  const hamburgerRef = useRef(null);
-  const navItemsRef = useRef(null);
-  const menuRef = useRef(null);
+const NavBarContent = ({ setActive, active }) => {
+  const tl = gsap.timeline({ paused: true });
 
-  useEffect(() => {
-    setIsOpen(false);
-    gsap.from(navRef.current, {
-      y: window.innerHeight,
-      autoAlpha: 0,
+  useGSAP(() => {
+    tl.from('.fullNav', {
+      y: '-100%',
+      opacity: 0,
+      display: 'none',
       duration: 2,
-      ease: 'power3.out',
     });
-    console.log('start', isOpen);
+    if (active) {
+      tl.play();
+      console.log(active);
+    } else {
+      console.log(active);
+    }
+  }, [active]);
 
-    gsap.to(menuRef.current, { autoAlpha: 0 });
-  }, []);
-
-  const toggleMenu = () => {
-    setIsOpen((prevState) => {
-      const newState = !prevState;
-      const tl = gsap.timeline({
-        defaults: {
-          duration: 0.5,
-          autoAlpha: newState ? 0 : 1,
-        },
-      });
-      const navItems = navItemsRef.current.querySelectorAll('li');
-
-      tl.to(hamburgerRef.current, {
-        rotation: newState ? 180 : 0,
-        transformOrigin: 'center center',
-        autoAlpha: 1,
-      });
-      tl.to(navItems, {
-        y: newState ? -50 : 0,
-        stagger: 0.2,
-      });
-      tl.fromTo(
-        menuRef.current,
-        {
-          y: newState ? window.innerHeight : 0,
-          autoAlpha: newState ? 0 : 1,
-        },
-        {
-          y: newState ? 0 : window.innerHeight,
-          autoAlpha: newState ? 1 : 0,
-        }
-      );
-
-      return newState;
+  const handleClick = () => {
+    tl.to('.fullNav', {
+      y: '-100%',
+      duration: 2,
+      onComplete: () => setActive(false),
     });
+    tl.play();
   };
-  const navItems = [
-    {
-      name: 'Home',
-      href: '/',
-    },
-    {
-      name: 'About',
-      href: '/about',
-    },
-    {
-      name: 'Work',
-      href: '/work',
-    },
-    {
-      name: 'Contact',
-      href: '/contact',
-    },
-  ];
-  return (
-    <nav className="container mx-auto px-5">
-      <div className="flex justify-between items-center p-6" ref={navRef}>
-        <Image
-          src="/logo.svg"
-          alt="logo"
-          width="1"
-          height="1"
-          className="w-max h-max"
-          priority={true}
-        />
-        <ul className="flex space-x-4" ref={navItemsRef}>
-          {navItems.map((nav) => {
-            return (
-              <li key={nav.name} className="text-neutral-300">
-                <Link href={nav.href}>{nav.name}</Link>
-              </li>
-            );
-          })}
-          <li className="div-line"></li>
-          <button className="space-y-1" onClick={toggleMenu} ref={hamburgerRef}>
-            <div className="w-6 h-1 bg-neutral-300"></div>
-            <div className="w-6 h-1 bg-neutral-300"></div>
-            <div className="w-6 h-1 bg-neutral-300"></div>
-          </button>
-        </ul>
-      </div>
 
-      <ul ref={menuRef} className="space-y-4 bg-neutral-700">
-        {navItems.map((nav) => (
-          <li key={nav.name} className="text-neutral-300">
-            <Link href={nav.href}>{nav.name}</Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+  return (
+    <div className="h-screen w-full container mx-auto fullNav py-6 ">
+      <div className="w-full flex justify-end">
+        <ArrowUpIcon
+          className="h-5 w-5 lg:h-6 lg:w-6 cursor-pointer text-white"
+          onClick={handleClick}
+        />
+      </div>
+      <div className="text-xl md:text-4xl lg:text-7xl font-josefin font-bold md:space-y-4 lg:space-y-8">
+        <h1 className="navlinks">
+          <a href="#" className="hover:text-secondary-200 cursor-pointer">
+            Ab<span className="text-secondary-200">o</span>ut
+          </a>
+        </h1>
+        <h1 className="navlinks cursor-pointer">
+          <a href="#" className="hover:text-secondary-200 cursor-pointer">
+            Pro<span className="text-secondary-200">je</span>
+            cts
+          </a>
+        </h1>
+        <h1 className="navlinks">
+          <a href="#" className="hover:text-secondary-200 cursor-pointer">
+            Con<span className="text-secondary-200">t</span>act
+          </a>
+        </h1>
+      </div>
+    </div>
   );
 };
 
-export default Navbar;
+export default function Navbar() {
+  const [active, setActive] = useState(false);
+
+  return (
+    <div>
+      {!active ? (
+        <div className="filter backdrop-blur-md">
+          <div className="flex items-center justify-between px-4 py-4 container mx-auto text-white">
+            {/* <div className="flex items-center justify-between px-4 py-4 max-w-md md:max-w-2xl lg:max-w-7xl mx-auto text-white"> */}
+            <h1 className="text-2xl md:text-3xl lg:text-3xl leading-normal cursor-pointer">
+              Gabriele Corbani
+            </h1>
+            <Bars2Icon
+              className="h-5 w-5 lg:h-6 lg:w-6 cursor-pointer"
+              onClick={() => setActive(!active)}
+            />
+          </div>
+        </div>
+      ) : (
+        <NavBarContent setActive={setActive} active={active} />
+      )}
+    </div>
+  );
+}
