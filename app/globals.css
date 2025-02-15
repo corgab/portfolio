@@ -7,7 +7,7 @@
 
 @layer components {
   .navlinks {
-    @apply py-4 md:py-8 lg:py-12 uppercase text-transparent text-white tracking-widest;
+    @apply py-4 md:py-8 lg:py-12 uppercase text-transparent text-primary-200 tracking-widest;
   }
 }
 
