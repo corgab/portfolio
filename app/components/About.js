@@ -62,7 +62,7 @@ const AbountContainer = () => {
       </AboutSection>
       <AboutSection alignment="left">
         <h2>LOREM</h2>
-        <div className="w-28 h-1 mx-3 bg-white"></div>
+        <div className="w-28 h-1 mx-3 bg-secondary-200"></div>
         <h2>LOREM</h2>
       </AboutSection>
     </div>

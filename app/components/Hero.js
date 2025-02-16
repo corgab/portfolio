@@ -52,7 +52,7 @@ export default function Hero() {
               <LinkedInIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
             </a>
             <a
-              href="#"
+              href="/Gabriele Corbani - Curriculum.pdf"
               target="_blank"
               className="rounded-full bg-secondary-200 p-2 block"
             >
