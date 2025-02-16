@@ -1,5 +1,5 @@
 'use client';
-import { EnvelopeIcon } from '@heroicons/react/24/solid';
+import { EnvelopeIcon, DocumentIcon } from '@heroicons/react/24/solid';
 import LinkedInIcon from './LinkedInIcon';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
@@ -13,7 +13,7 @@ export default function Hero() {
       x: '-500',
       scrollTrigger: {
         trigger: '.socials',
-        start: 'top center',
+        start: 'bottom center',
         end: 'top top',
         scrub: 1,
         ease: 'none',
@@ -35,8 +35,8 @@ export default function Hero() {
 
   return (
     <>
-      <div className="container mx-auto p-4 h-screen w-full mb-96">
-        <div className="flex justify-between items-center h-full mb-96">
+      <div className="container mx-auto p-4 h-screen w-full ">
+        <div className="flex justify-between items-center h-full ">
           <div className="space-y-5 socials ">
             <a
               href="mailto:corbanigabriele@gmail.com"
@@ -51,7 +51,15 @@ export default function Hero() {
             >
               <LinkedInIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
             </a>
+            <a
+              href="#"
+              target="_blank"
+              className="rounded-full bg-secondary-200 p-2 block"
+            >
+              <DocumentIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
+            </a>
           </div>
+
           <div className="text-6xl md:text-8xl lg:text-9xl font-josefin font-black md:space-y-4 lg:space-y-8 tracking-7 leading-none uppercase ">
             <h1 className="text-primary-200 text-start name">GABRIELE</h1>
             <h1
