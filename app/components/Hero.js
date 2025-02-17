@@ -10,25 +10,26 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Hero() {
   useGSAP(() => {
     gsap.to(['.socials', '.surname'], {
-      x: '-500',
+      x: '50%',
       scrollTrigger: {
         trigger: '.socials',
         start: 'bottom center',
-        end: 'top top',
+        end: 'bottom top',
         scrub: 1,
         ease: 'none',
-        // markers: true,
+        markers: true,
       },
     });
 
     gsap.to('.name', {
-      x: '500',
+      x: '-50%',
       scrollTrigger: {
         trigger: '.socials',
-        start: 'top center',
-        end: 'top top',
+        start: 'bottom center',
+        end: 'bottom top',
         scrub: 1,
         ease: 'none',
+        markers: true,
       },
     });
   }, []);
