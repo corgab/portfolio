@@ -43,13 +43,7 @@ const Project = ({ name, img, repo, technologies }) => {
               className="text-blue-600 hover:text-blue-800 hover:underline hover:underline-offset-4 mt-2 inline-block pt-7 px-4"
               target="_blank"
             >
-              <Image
-                src="/github.svg"
-                alt={name}
-                width={50}
-                height={50}
-                className=""
-              />
+              <Image src="/github.svg" alt={name} width={50} height={50} />
             </a>
           ))
         ) : (
@@ -58,13 +52,7 @@ const Project = ({ name, img, repo, technologies }) => {
             className="text-blue-600 hover:text-blue-800 hover:underline hover:underline-offset-4 mt-2 inline-block pt-7"
             target="_blank"
           >
-            <Image
-              src="/github.svg"
-              alt={name}
-              width={50}
-              height={50}
-              className=""
-            />
+            <Image src="/github.svg" alt={name} width={50} height={50} />
           </a>
         )}
       </div>
@@ -84,6 +72,7 @@ export default function Projects() {
       end: '+=3000',
       scrub: 2,
       pin: true,
+      anticipatePin: 1,
       // markers: true,
     });
   }, []);
@@ -127,7 +116,7 @@ export default function Projects() {
   ];
 
   return (
-    <div className=" min-h-96 w-full py-12 overflow-hidden">
+    <div className=" min-h-96 w-full overflow-hidden">
       <div className="flex flex-nowrap space-x-6 p-4 projects items-center">
         {projects.map((proj, index) => (
           <Project
