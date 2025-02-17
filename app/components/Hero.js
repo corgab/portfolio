@@ -61,7 +61,7 @@ export default function Hero() {
           </div>
 
           <div className="text-6xl md:text-8xl lg:text-9xl font-josefin font-black md:space-y-4 lg:space-y-8 tracking-7 leading-none uppercase ">
-            <h1 className="text-primary-200 text-start name">GABRIELE</h1>
+            <h1 className="text-secondary-200 text-start name">GABRIELE</h1>
             <h1
               className="text-white uppercase text-end surname"
               style={{

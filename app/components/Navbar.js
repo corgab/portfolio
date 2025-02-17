@@ -5,8 +5,6 @@ import { gsap } from 'gsap';
 import { useState } from 'react';
 import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(useGSAP);
-
 const NavBarContent = ({ setActive, active }) => {
   const tl = gsap.timeline({ paused: true });
 

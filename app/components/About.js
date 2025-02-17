@@ -21,7 +21,7 @@ const AboutSection = ({ alignment, children }) => {
 const AbountContainer = () => {
   useGSAP(() => {
     gsap.to('.left', {
-      x: '100%',
+      x: '50%',
       ease: 'none',
       scrollTrigger: {
         trigger: '.left',
@@ -32,7 +32,7 @@ const AbountContainer = () => {
       },
     });
     gsap.to('.right', {
-      x: '-100%',
+      x: '-50%',
       ease: 'none',
       scrollTrigger: {
         trigger: '.left',
@@ -62,7 +62,7 @@ const AbountContainer = () => {
       </AboutSection>
       <AboutSection alignment="left">
         <h2>LOREM</h2>
-        <div className="w-28 h-1 mx-3 bg-secondary-200"></div>
+        <div className="w-28 h-1 mx-3 bg-white"></div>
         <h2>LOREM</h2>
       </AboutSection>
     </div>
