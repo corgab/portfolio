@@ -4,12 +4,13 @@ import LinkedInIcon from './LinkedInIcon';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   useGSAP(() => {
-    gsap.to(['.socials', '.surname'], {
+    gsap.to(['.socials', '.name'], {
       x: '50%',
       scrollTrigger: {
         trigger: '.socials',
@@ -17,11 +18,11 @@ export default function Hero() {
         end: 'bottom top',
         scrub: 1,
         ease: 'none',
-        markers: true,
+        // markers: true,
       },
     });
 
-    gsap.to('.name', {
+    gsap.to('.surname', {
       x: '-50%',
       scrollTrigger: {
         trigger: '.socials',
@@ -29,7 +30,7 @@ export default function Hero() {
         end: 'bottom top',
         scrub: 1,
         ease: 'none',
-        markers: true,
+        // markers: true,
       },
     });
   }, []);
@@ -61,10 +62,10 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="text-6xl md:text-8xl lg:text-9xl font-josefin font-black md:space-y-4 lg:space-y-8 tracking-7 leading-none uppercase ">
-            <h1 className="text-secondary-200 text-start name">GABRIELE</h1>
+          <div className="flex flex-col items-end justify-end text-6xl md:text-8xl lg:text-[10em] font-josefin font-black md:space-y-4 lg:space-y-8 tracking-7 leading-none uppercase">
+            <h1 className="text-secondary-200 name">GABRIELE</h1>
             <h1
-              className="text-white uppercase text-end surname"
+              className="text-white uppercase surname"
               style={{
                 textShadow:
                   '-1px 0 0 #000, 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000',

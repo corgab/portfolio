@@ -39,8 +39,8 @@ export default function Footer() {
 
   return (
     <div className="bg-primary-200">
-      <div className="mx-auto px-12 min-h-[50vh] text-center text-white flex flex-col justify-between py-5">
-        <div className="flex justify-center">
+      <div className="mx-auto px-12 min-h-[60vh] text-center text-white flex flex-col justify-between py-5">
+        <div className="flex justify-center pt-6">
           <div className="bg-primary-100 rounded-full px-6 py-2 text-lg uppercase font-semibold text-white inline-flex items-center gap-3 tracking-wide">
             <span>disponibile per nuove opportunità</span>
             <span className="w-5 h-5 bg-white rounded-full animate-pulse"></span>
