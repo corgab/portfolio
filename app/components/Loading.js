@@ -28,7 +28,6 @@ const LoadingScreen = ({ onComplete, setLoading }) => {
         />
         <h6 className="">Caricamento...</h6>
       </div>
-
       <div className="loading-bar mt-4 w-0 h-2 inline-block bg-white"></div>
     </div>
   );

@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   useGSAP(() => {
-    gsap.to(['.socials', '.name'], {
+    gsap.to('.name', {
       x: '50%',
       scrollTrigger: {
         trigger: '.socials',
@@ -22,7 +22,7 @@ export default function Hero() {
       },
     });
 
-    gsap.to('.surname', {
+    gsap.to(['.socials', '.surname'], {
       x: '-50%',
       scrollTrigger: {
         trigger: '.socials',
@@ -42,21 +42,21 @@ export default function Hero() {
           <div className="space-y-5 socials ">
             <a
               href="mailto:corbanigabriele@gmail.com"
-              className="rounded-full bg-secondary-200 p-2 block"
+              className="rounded-full bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110"
             >
               <EnvelopeIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
             </a>
             <a
               href="https://www.linkedin.com/in/gabriele-corbani-01a11a315/"
               target="_blank"
-              className="rounded-full bg-secondary-200 p-2 block"
+              className="rounded-full bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform  hover:scale-110"
             >
               <LinkedInIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
             </a>
             <a
               href="/Gabriele Corbani - Curriculum.pdf"
               target="_blank"
-              className="rounded-full bg-secondary-200 p-2 block"
+              className="rounded-full bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110"
             >
               <DocumentIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
             </a>

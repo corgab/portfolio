@@ -10,7 +10,7 @@ const AboutSection = ({ alignment, children }) => {
   return (
     <div className="border-b-2 border-primary-100">
       <div
-        className={`flex justify-center items-center font-bold text-7xl text-white py-7 ${alignment}`}
+        className={`flex justify-center items-center font-bold text-3xl md:text-5xl	 lg:text-7xl text-white py-7 ${alignment}`}
       >
         {children}
       </div>
@@ -47,22 +47,22 @@ const AbountContainer = () => {
     <div className="bg-primary-200">
       <AboutSection alignment="right">
         <h2>LOREM</h2>
-        <div className="w-28 h-1 mx-3 bg-white"></div>
+        <div className="w-10 lg:w-28 h-1 mx-3 bg-white"></div>
         <h2>LOREM</h2>
       </AboutSection>
       <AboutSection alignment="left">
         <h2>LOREM</h2>
-        <div className="w-28 h-1 mx-3 bg-white"></div>
+        <div className="w-10 lg:w-28 h-1 mx-3 bg-white"></div>
         <h2>LOREM</h2>
       </AboutSection>
       <AboutSection alignment="right">
         <h2>LOREM</h2>
-        <div className="w-28 h-1 mx-3 bg-white"></div>
+        <div className="w-10 lg:w-28 h-1 mx-3 bg-white"></div>
         <h2>LOREM</h2>
       </AboutSection>
       <AboutSection alignment="left">
         <h2>LOREM</h2>
-        <div className="w-28 h-1 mx-3 bg-white"></div>
+        <div className="w-10 lg:w-28 h-1 mx-3 bg-white"></div>
         <h2>LOREM</h2>
       </AboutSection>
     </div>

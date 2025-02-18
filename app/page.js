@@ -12,19 +12,19 @@ export default function Home() {
 
   return (
     <>
-      <LoadingScreen setLoading={setLoading} />
+      <div className={loading ? 'overflow-hidden' : 'overflow-x-hidden'}>
+        <LoadingScreen setLoading={setLoading} loading={loading} />
 
-      {loading ? null : (
-        <>
+        {loading ? null : (
           <>
-            <Navbar />
+            {/* <Navbar /> Work in progress*/}
             <Hero />
             <About />
             <Projects />
             <Footer />
           </>
-        </>
-      )}
+        )}
+      </div>
     </>
   );
 }

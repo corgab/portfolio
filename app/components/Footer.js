@@ -40,10 +40,10 @@ export default function Footer() {
   return (
     <div className="bg-primary-200">
       <div className="mx-auto px-12 min-h-[60vh] text-center text-white flex flex-col justify-between py-5">
-        <div className="flex justify-center pt-6">
-          <div className="bg-primary-100 rounded-full px-6 py-2 text-lg uppercase font-semibold text-white inline-flex items-center gap-3 tracking-wide">
+        <div className="pt-6">
+          <div className="bg-primary-100 rounded-full px-3 md:px-5 py-2 text-base md:text-lg uppercase font-semibold text-white inline-block md:inline-flex items-center gap-2 md:gap-3 tracking-wide  ">
             <span>disponibile per nuove opportunità</span>
-            <span className="w-5 h-5 bg-white rounded-full animate-pulse"></span>
+            <span className="w-5 h-5 bg-white rounded-full animate-pulse md:mt-0 mt-2"></span>
           </div>
         </div>
 
@@ -70,7 +70,7 @@ export default function Footer() {
         </div>
 
         {/* Griglia con gli item */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {items.map((item, i) => {
             const letterRefs = useRef([]);
 

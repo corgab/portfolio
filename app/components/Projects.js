@@ -3,12 +3,13 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
+import { useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Project = ({ name, img, repo, technologies }) => {
   return (
-    <div className="text-center bg-white shadow-lg rounded-xl p-5 cursor-pointer min-w-[450px] my-36">
+    <div className="text-center bg-white shadow-lg rounded-xl p-5 cursor-pointer my-36 min-w-[300px] sm:min-w-[400px] md:min-w-[450px]">
       <div className="w-full h-60 overflow-hidden rounded-t-xl">
         <Image
           src={img}
@@ -18,7 +19,7 @@ const Project = ({ name, img, repo, technologies }) => {
           className="w-full object-cover object-top"
         />
       </div>
-      <h3 className="text-5xl font-bold mt-4 text-primary-200 w-full">
+      <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mt-4 text-primary-200 w-full">
         {name}
       </h3>
       <div className="mt-2 text-sm text-gray-600">
@@ -40,7 +41,7 @@ const Project = ({ name, img, repo, technologies }) => {
             <a
               key={index}
               href={'https://github.com' + r}
-              className="text-blue-600 hover:text-blue-800 hover:underline hover:underline-offset-4 mt-2 inline-block pt-7 px-4"
+              className="text-blue-600 hover:text-blue-800 hover:underline hover:underline-offset-4 md:mt-2 inline-block md:pt-7 px-4"
               target="_blank"
             >
               <Image src="/github.svg" alt={name} width={50} height={50} />
@@ -61,18 +62,28 @@ const Project = ({ name, img, repo, technologies }) => {
 };
 
 export default function Projects() {
+  const projRef = useRef(null);
+
+  function getScrollAmount() {
+    let width = projRef.current.scrollWidth;
+    return -(width - window.innerWidth) - 50;
+  }
+
   useGSAP(() => {
-    const tl = gsap.timeline();
-    tl.to('.projects', { xPercent: '-100' });
+    const tween = gsap.to('.projects', {
+      x: getScrollAmount,
+      // duration: 3,
+      ease: 'none',
+    });
 
     ScrollTrigger.create({
-      animation: tl,
       trigger: '.projects',
       start: 'top top',
-      end: '+=3000',
-      scrub: 2,
+      end: () => `+=${getScrollAmount() * -1}`,
       pin: true,
-      anticipatePin: 1,
+      animation: tween,
+      scrub: 1,
+      invalidateOnRefresh: true,
       // markers: true,
     });
   }, []);
@@ -100,7 +111,6 @@ export default function Projects() {
       repo: '/corgab/deliveboo-api',
       technologies: ['Laravel', 'Vue.js', 'Bootstrap'],
     },
-    // new
     {
       name: 'Game Creator',
       img: '/projects/game.jpg',
@@ -116,11 +126,15 @@ export default function Projects() {
   ];
 
   return (
-    <div className=" min-h-96 w-full overflow-hidden">
-      <div className="flex flex-nowrap space-x-6 p-4 projects items-center">
+    <div className="min-h-96 w-full overflow-hidden">
+      <div
+        className="flex flex-nowrap space-x-6 p-4 projects items-center"
+        ref={projRef}
+      >
         {projects.map((proj, index) => (
           <Project
             key={index}
+            ref={(el) => (projRefs.current[index] = el)} // Assegniamo il ref alla card
             name={proj.name}
             img={proj.img}
             repo={proj.repo}
