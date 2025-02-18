@@ -62,10 +62,7 @@ export default function Footer() {
           <a
             href="https://github.com/corgab"
             target="_blank"
-            className="uppercase px-7 py-3 bg-white rounded-full text-primary-200 font-semibold text-lg mt-10 inline-flex items-center gap-3 tracking-wide transition-shadow hover:shadow-lg"
-            style={{
-              boxShadow: '0 0 15px 1px rgba(255, 255, 255, .27)',
-            }}
+            className="uppercase px-7 py-3 bg-white rounded-full text-primary-200 font-semibold text-lg mt-10 inline-flex items-center gap-3 tracking-wide transition-transform transform hover:scale-110 hover:shadow-2xl"
           >
             Scopri il mio lavoro
             <ArrowRightIcon className="w-5 h-5 text-primary-200" />
