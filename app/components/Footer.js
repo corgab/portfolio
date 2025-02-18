@@ -6,19 +6,17 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 export default function Footer() {
   const animate = (refs) => {
     gsap.to(refs, {
-      y: -20,
-      stagger: 0.05,
-      ease: 'power4.out',
-      duration: 1,
+      y: -10,
+      stagger: 0.03,
+      ease: 'none',
     });
   };
 
   const animateOut = (refs) => {
     gsap.to(refs, {
       y: 0,
-      stagger: 0.05,
-      ease: 'power4.out',
-      duration: 1,
+      stagger: 0.03,
+      ease: 'none',
     });
   };
 
