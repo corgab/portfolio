@@ -13,15 +13,17 @@ export default function Home() {
 
   return (
     <>
-      {loading ? (
-        <LoadingScreen setLoading={setLoading} />
-      ) : (
+      <LoadingScreen setLoading={setLoading} />
+
+      {loading ? null : (
         <>
-          <Navbar />
-          <Hero />
-          <About />
-          <Projects />
-          <Footer />
+          <>
+            <Navbar />
+            <Hero />
+            <About />
+            <Projects />
+            <Footer />
+          </>
         </>
       )}
     </>
