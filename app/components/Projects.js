@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,7 +63,9 @@ const Project = ({ name, img, repo, technologies }) => {
 
 export default function Projects() {
   const projRef = useRef(null);
+  const projRefs = useRef([]);
 
+  // Funzione per calcolare la distanza di scroll
   function getScrollAmount() {
     let width = projRef.current.scrollWidth;
     return -(width - window.innerWidth) - 50;
@@ -72,7 +74,6 @@ export default function Projects() {
   useGSAP(() => {
     const tween = gsap.to('.projects', {
       x: getScrollAmount,
-      // duration: 3,
       ease: 'none',
     });
 
@@ -84,7 +85,6 @@ export default function Projects() {
       animation: tween,
       scrub: 1,
       invalidateOnRefresh: true,
-      // markers: true,
     });
   }, []);
 
@@ -134,7 +134,7 @@ export default function Projects() {
         {projects.map((proj, index) => (
           <Project
             key={index}
-            ref={(el) => (projRefs.current[index] = el)} // Assegniamo il ref alla card
+            ref={(el) => (projRefs.current[index] = el)}
             name={proj.name}
             img={proj.img}
             repo={proj.repo}

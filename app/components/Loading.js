@@ -25,6 +25,7 @@ const LoadingScreen = ({ onComplete, setLoading }) => {
           width={350}
           height={350}
           alt="gabriele corbani - memoji"
+          priority={true}
         />
         <h6 className="">Caricamento...</h6>
       </div>
