@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Project = ({ name, img, repo, technologies }) => {
   return (
-    <div className="text-center bg-white shadow-lg rounded-xl p-5 cursor-pointer my-36 min-w-[300px] sm:min-w-[400px] md:min-w-[450px]">
+    <div className="text-center bg-white shadow-lg rounded-xl p-5 cursor-pointer my-36 min-w-[300px] sm:min-w-[400px] md:min-w-[450px] overflow-hidden">
       <div className="w-full h-60 overflow-hidden rounded-t-xl">
         <Image
           src={img}

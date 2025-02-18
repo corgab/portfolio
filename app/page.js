@@ -15,7 +15,6 @@ export default function Home() {
     if (loading) {
       document.body.style.overflow = 'hidden';
     } else {
-      // Altrimenti auto
       document.body.style.overflowX = 'hidden';
       document.body.style.overflowY = 'auto';
     }

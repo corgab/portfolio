@@ -1,5 +1,5 @@
 import './globals.css';
-// import { Metadata } from 'next';
+import Head from 'next/head';
 
 // Metadata globale per il portfolio
 export const metadata = {
@@ -79,17 +79,16 @@ export const metadata = {
   metadataBase: new URL('https://portfolio-corgab.netlify.app/'),
 };
 
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-  themeColor: '#5F85DB',
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="it" suppressHydrationWarning>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+        <meta name="theme-color" content="#5F85DB" />
+      </Head>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

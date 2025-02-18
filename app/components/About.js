@@ -44,7 +44,7 @@ const AbountContainer = () => {
     });
   }, []);
   return (
-    <div className="bg-primary-200">
+    <div className="bg-primary-200 overflow-x-hidden">
       <AboutSection alignment="right">
         <h2>Frontend</h2>
         <div className="w-10 lg:w-28 h-1 mx-3 bg-white"></div>

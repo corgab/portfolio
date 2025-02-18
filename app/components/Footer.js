@@ -36,7 +36,7 @@ export default function Footer() {
   ];
 
   return (
-    <div className="bg-primary-200">
+    <div className="bg-primary-200 overflow-x-hidden">
       <div className="mx-auto px-12 min-h-[50vh] md:min-h-[60vh] text-center text-white flex flex-col justify-between py-5">
         <div className="pt-6">
           <div className="bg-primary-100 rounded-full px-3 md:px-5 py-2 text-base md:text-lg uppercase font-semibold text-white inline-flex  flex-col sm:flex-row items-center gap-2 md:gap-3 tracking-wide">

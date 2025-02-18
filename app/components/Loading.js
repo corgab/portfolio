@@ -18,14 +18,15 @@ const LoadingScreen = ({ onComplete, setLoading }) => {
   }, []);
 
   return (
-    <div className="loading-screen fixed top-0 left-0 w-full h-full  bg-primary-200 z-50 flex flex-col items-center justify-center text-white">
+    <div className="loading-screen fixed top-0 left-0 w-full h-full  bg-primary-200 z-50 flex flex-col items-center justify-center text-white overflow-hidden">
       <div className="loading-text text-4xl opacity-0 translate-y-10 text-center">
         <Image
           src="/memoji.png"
           width={350}
           height={350}
           alt="gabriele corbani - memoji"
-          priority={true}
+          priority
+          as="image"
         />
         <h6 className="">Caricamento...</h6>
       </div>

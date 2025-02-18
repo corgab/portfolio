@@ -37,7 +37,7 @@ export default function Hero() {
 
   return (
     <>
-      <div className="container mx-auto p-4 h-screen w-full ">
+      <div className="container mx-auto p-4 h-screen w-full overflow-x-hidden">
         <div className="flex flex-col md:flex-row justify-center md:justify-between items-center h-full gap-5">
           <div className="md:space-y-5 socials flex md:flex-col space-x-4 md:space-x-0 md:space-y-4">
             <a
