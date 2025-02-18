@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,21 +10,24 @@ import LoadingScreen from './components/Loading';
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    // Quando carica body è hidden
+    if (loading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Altrimenti auto
+      document.body.style.overflow = 'auto';
+    }
+  }, [loading]);
+
   return (
     <>
-      <div className={loading ? 'overflow-hidden' : 'overflow-x-hidden'}>
-        <LoadingScreen setLoading={setLoading} loading={loading} />
+      <LoadingScreen setLoading={setLoading} loading={loading} />
 
-        {loading ? null : (
-          <>
-            {/* <Navbar /> Work in progress*/}
-            <Hero />
-            <About />
-            <Projects />
-            <Footer />
-          </>
-        )}
-      </div>
+      <Hero />
+      <About />
+      <Projects />
+      <Footer />
     </>
   );
 }

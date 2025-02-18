@@ -28,7 +28,7 @@ const Project = ({ name, img, repo, technologies }) => {
           {technologies.map((tech, index) => (
             <li
               key={index}
-              className="bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700"
+              className="bg-secondary-100 rounded-full px-3 py-1 text-xs font-semibold text-primary-100"
             >
               {tech}
             </li>

@@ -13,7 +13,7 @@ export default function Hero() {
     gsap.to('.name', {
       x: '50%',
       scrollTrigger: {
-        trigger: '.name',
+        trigger: '.surname',
         start: 'bottom center',
         end: 'bottom top',
         scrub: 1,
@@ -25,7 +25,7 @@ export default function Hero() {
     gsap.to(['.socials', '.surname'], {
       x: '-50%',
       scrollTrigger: {
-        trigger: '.name',
+        trigger: '.surname',
         start: 'bottom center',
         end: 'bottom top',
         scrub: 1,
@@ -42,23 +42,31 @@ export default function Hero() {
           <div className="md:space-y-5 socials flex md:flex-col space-x-4 md:space-x-0 md:space-y-4">
             <a
               href="mailto:corbanigabriele@gmail.com"
-              className="rounded-full bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110"
+              className="rounded-full sm:rounded-3xl bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110 flex md:flex-col items-center justify-center"
             >
-              <EnvelopeIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
+              <EnvelopeIcon className="text-white w-5 h-5 md:w-10 md:h-10 " />
+              <span className="text-1xl text-white font-medium py-1">
+                email
+              </span>
             </a>
+
             <a
               href="https://www.linkedin.com/in/gabriele-corbani-01a11a315/"
               target="_blank"
-              className="rounded-full bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110"
+              className="rounded-full sm:rounded-3xl bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110 flex md:flex-col items-center justify-center"
             >
               <LinkedInIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
+              <span className="text-1xl text-white font-medium py-1">
+                LinkedIn
+              </span>
             </a>
             <a
               href="/Gabriele Corbani - Curriculum.pdf"
               target="_blank"
-              className="rounded-full bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110"
+              className="rounded-full sm:rounded-3xl bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110 flex md:flex-col items-center justify-center"
             >
               <DocumentIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
+              <span className="text-1xl text-white font-medium py-1">CV</span>
             </a>
           </div>
 
