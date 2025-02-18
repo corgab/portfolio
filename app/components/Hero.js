@@ -13,7 +13,7 @@ export default function Hero() {
     gsap.to('.name', {
       x: '50%',
       scrollTrigger: {
-        trigger: '.socials',
+        trigger: '.name',
         start: 'bottom center',
         end: 'bottom top',
         scrub: 1,
@@ -25,7 +25,7 @@ export default function Hero() {
     gsap.to(['.socials', '.surname'], {
       x: '-50%',
       scrollTrigger: {
-        trigger: '.socials',
+        trigger: '.name',
         start: 'bottom center',
         end: 'bottom top',
         scrub: 1,
@@ -38,8 +38,8 @@ export default function Hero() {
   return (
     <>
       <div className="container mx-auto p-4 h-screen w-full ">
-        <div className="flex justify-between items-center h-full ">
-          <div className="space-y-5 socials ">
+        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center h-full gap-5">
+          <div className="md:space-y-5 socials flex md:flex-col space-x-4 md:space-x-0 md:space-y-4">
             <a
               href="mailto:corbanigabriele@gmail.com"
               className="rounded-full bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110"
@@ -49,7 +49,7 @@ export default function Hero() {
             <a
               href="https://www.linkedin.com/in/gabriele-corbani-01a11a315/"
               target="_blank"
-              className="rounded-full bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform  hover:scale-110"
+              className="rounded-full bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110"
             >
               <LinkedInIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
             </a>
