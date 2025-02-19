@@ -1,15 +1,14 @@
-'use client';
 import gsap from 'gsap';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Project = ({ name, img, repo, technologies }) => {
   return (
-    <div className="text-center bg-white shadow-lg rounded-xl p-5 cursor-pointer my-36 min-w-[300px] sm:min-w-[400px] md:min-w-[450px] overflow-hidden">
+    <div className="text-center bg-white shadow-lg rounded-xl p-5 cursor-pointer min-w-[300px] sm:min-w-[400px] md:min-w-[450px] overflow-hidden">
       <div className="w-full h-60 overflow-hidden rounded-t-xl">
         <Image
           src={img}
@@ -63,7 +62,6 @@ const Project = ({ name, img, repo, technologies }) => {
 
 export default function Projects() {
   const projRef = useRef(null);
-  const projRefs = useRef([]);
 
   // Funzione per calcolare la distanza di scroll
   function getScrollAmount() {
@@ -126,7 +124,7 @@ export default function Projects() {
   ];
 
   return (
-    <div className="min-h-96 w-full overflow-hidden">
+    <div className=" w-full overflow-hidden">
       <div
         className="flex flex-nowrap space-x-6 p-4 projects items-center"
         ref={projRef}
@@ -134,7 +132,6 @@ export default function Projects() {
         {projects.map((proj, index) => (
           <Project
             key={index}
-            ref={(el) => (projRefs.current[index] = el)}
             name={proj.name}
             img={proj.img}
             repo={proj.repo}
