@@ -1,6 +1,20 @@
 import './globals.css';
 import Head from 'next/head';
+import { Josefin_Sans, Satisfy } from 'next/font/google';
 
+const josefin = Josefin_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-josefin',
+});
+
+const satisfy = Satisfy({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-satisfy',
+});
 // Metadata globale per il portfolio
 export const metadata = {
   // Titolo e descrizione principale
@@ -89,7 +103,12 @@ export default function RootLayout({ children }) {
         />
         <meta name="theme-color" content="#5F85DB" />
       </Head>
-      <body suppressHydrationWarning>{children}</body>
+      <body
+        className={`${josefin.className} ${satisfy.variable} font-josefin`}
+        suppressHydrationWarning
+      >
+        {children}
+      </body>
     </html>
   );
 }

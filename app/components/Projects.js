@@ -3,6 +3,11 @@ import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
 import { useRef } from 'react';
+import gestioneUtenti from '@/public/projects/gestione-utenti.jpg';
+import cms from '@/public/projects/CMS.jpg';
+import deliveboo from '@/public/projects/deliveboo.png';
+import gameCreator from '@/public/projects/game.jpg';
+import dcComics from '@/public/projects/dc.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +21,7 @@ const Project = ({ name, img, repo, technologies }) => {
           width={300}
           height={300}
           className="w-full object-cover object-top"
+          placeholder="blur"
         />
       </div>
       <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mt-4 text-primary-200 w-full">
@@ -89,13 +95,13 @@ export default function Projects() {
   const projects = [
     {
       name: 'Gestione Utenti',
-      img: '/projects/gestione-utenti.jfif',
+      img: gestioneUtenti,
       repo: '/corgab/user-management-app',
       technologies: ['Express.js', 'Node.js', 'MySQL'],
     },
     {
       name: 'Cms',
-      img: '/projects/CMS.jfif',
+      img: cms,
       repo: [
         '/corgab/kigab-restaurant-front',
         '/corgab/kigab-restaurant',
@@ -105,19 +111,19 @@ export default function Projects() {
     },
     {
       name: 'Deliveboo',
-      img: '/projects/deliveboo.png',
+      img: deliveboo,
       repo: '/corgab/deliveboo-api',
       technologies: ['Laravel', 'Vue.js', 'Bootstrap'],
     },
     {
       name: 'Game Creator',
-      img: '/projects/game.jpg',
+      img: gameCreator,
       repo: '/rachelpatrocinio/game-creator',
       technologies: ['Laravel', 'Bootstrap', 'MySQL'],
     },
     {
       name: 'DC Comics',
-      img: '/projects/dc.png',
+      img: dcComics,
       repo: '/corgab/laravel-dc-comics',
       technologies: ['Laravel', 'Vue.js', 'Bootstrap'],
     },

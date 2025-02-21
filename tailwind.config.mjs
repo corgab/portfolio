@@ -19,8 +19,10 @@ export default {
       },
     },
     fontFamily: {
-      josefin: ['Josefin Sans', 'sans-serif'],
-      satisfy: ['satisfy', 'cursive'],
+      // josefin: ['Josefin Sans', 'sans-serif'],
+      // satisfy: ['satisfy', 'cursive'],
+      josefin: ['var(--font-josefin)', 'sans-serif'],
+      satisfy: ['var(--font-satisfy)', 'cursive'],
     },
   },
   plugins: [],

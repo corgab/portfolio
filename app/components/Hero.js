@@ -46,7 +46,7 @@ export default function Hero() {
                 className="rounded-full sm:rounded-3xl bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110 flex md:flex-col items-center justify-center"
               >
                 <EnvelopeIcon className="text-white w-5 h-5 md:w-10 md:h-10 " />
-                <span className="text-1xl text-white font-medium py-1">
+                <span className="text-1xl text-white font-medium py-1 hidden md:inline">
                   email
                 </span>
               </a>
@@ -57,7 +57,7 @@ export default function Hero() {
                 className="rounded-full sm:rounded-3xl bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110 flex md:flex-col items-center justify-center"
               >
                 <LinkedInIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
-                <span className="text-1xl text-white font-medium py-1">
+                <span className="text-1xl text-white font-medium py-1 hidden md:inline">
                   LinkedIn
                 </span>
               </a>
@@ -67,7 +67,9 @@ export default function Hero() {
                 className="rounded-full sm:rounded-3xl bg-secondary-200 p-2 block transition-all duration-300 ease-in-out transform hover:scale-110 flex md:flex-col items-center justify-center"
               >
                 <DocumentIcon className="text-white w-5 h-5 md:w-10 md:h-10" />
-                <span className="text-1xl text-white font-medium py-1">CV</span>
+                <span className="text-1xl text-white font-medium py-1 hidden md:inline">
+                  CV
+                </span>
               </a>
             </div>
 
