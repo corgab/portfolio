@@ -20,7 +20,7 @@ export const metadata = {
   // Titolo e descrizione principale
   title: 'Gabriele Corbani - Web Developer',
   description:
-    'Il portfolio di Gabriele Corbani, sviluppatore web specializzato in React, Laravel e tecnologie moderne.',
+    'Il portfolio di Gabriele Corbani, sviluppatore web specializzato in React, Laravel e tecnologie moderne',
 
   openGraph: {
     title: 'Gabriele Corbani - Web Developer',
@@ -29,8 +29,8 @@ export const metadata = {
     images: [
       {
         url: '/memoji.png',
-        width: 1200,
-        height: 630,
+        // width: 1200,
+        // height: 630,
       },
     ],
     type: 'website',
@@ -82,7 +82,7 @@ export const metadata = {
   authors: [
     {
       name: 'Gabriele Corbani',
-      url: 'https://portfolio-corgab.netlify.app/',
+      url: 'https://gabriele-corbani.netlify.app/',
     },
   ],
 
@@ -90,18 +90,24 @@ export const metadata = {
   applicationName: 'Gabriele Corbani Portfolio',
 
   // Informazioni aggiuntive
-  metadataBase: new URL('https://portfolio-corgab.netlify.app/'),
+  metadataBase: new URL('https://gabriele-corbani.netlify.app/'),
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="it" suppressHydrationWarning>
+    <html
+      lang='it'
+      suppressHydrationWarning
+    >
       <Head>
         <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+          name='viewport'
+          content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
         />
-        <meta name="theme-color" content="#5F85DB" />
+        <meta
+          name='theme-color'
+          content='#5F85DB'
+        />
       </Head>
       <body
         className={`${josefin.className} ${satisfy.variable} font-josefin`}
