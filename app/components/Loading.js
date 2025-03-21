@@ -22,16 +22,15 @@ const LoadingScreen = ({ onComplete, setLoading }) => {
       <div className="loading-text text-4xl opacity-0 translate-y-10 text-center">
         <Image
           src="/memoji.png"
-          width={350}
-          height={350}
-          alt="gabriele corbani - memoji"
+          width={250}
+          height={250}
+          alt="Gabriele Corbani - memoji"
           priority={true}
-          preload="true"
-          as="image"
+        // preload="true"
         />
         <h6 className="">Caricamento...</h6>
       </div>
-      <div className="loading-bar mt-4 w-0 h-2 inline-block bg-white"></div>
+      <div className="loading-bar mt-4 w-0 h-2 inline-block bg-white rounded-full"></div>
     </div>
   );
 };

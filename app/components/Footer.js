@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
 
         <div className="py-10">
-          <h4 className="font-bold text-5xl leading-normal">
+          <h2 className="font-bold text-5xl leading-normal">
             <span className="italic font-satisfy font-normal text-6xl text-secondary-200">
               Passione
             </span>{' '}
@@ -40,15 +40,15 @@ export default function Footer() {
             </span>
             <br />
             per il digitale
-          </h4>
-          <a
+          </h2>
+          <Link
             href="https://github.com/corgab"
             target="_blank"
             className="uppercase px-7 py-3 bg-white rounded-full text-primary-200 font-semibold text-lg mt-10 inline-flex items-center gap-3 duration-300 tracking-wide transition-transform transform hover:scale-110 hover:shadow-2xl"
           >
             Scopri il mio lavoro
             <ArrowRightIcon className="w-5 h-5 text-primary-200" />
-          </a>
+          </Link>
         </div>
 
         {/* Griglia con gli item */}
