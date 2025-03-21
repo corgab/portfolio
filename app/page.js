@@ -24,7 +24,7 @@ export default function Home() {
     <>
       <LoadingScreen setLoading={setLoading} loading={loading} />
 
-      <Hero />
+      <Hero loading={loading} />
       <About />
       <Projects />
       <Footer />

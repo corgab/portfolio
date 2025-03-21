@@ -1,5 +1,5 @@
 'use client';
-import { EnvelopeIcon, DocumentIcon } from '@heroicons/react/24/solid';
+import { EnvelopeIcon, DocumentIcon, ArrowDownIcon } from '@heroicons/react/24/solid';
 import LinkedInIcon from './LinkedInIcon';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
@@ -8,7 +8,10 @@ import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Hero() {
+export default function Hero({ loading }) {
+
+  console.log(loading)
+
   useGSAP(() => {
     gsap.to('.name', {
       x: '50%',
@@ -35,11 +38,24 @@ export default function Hero() {
     });
   }, []);
 
+  useGSAP(() => {
+    if (!loading) {
+      gsap.to('.icon', {
+        y: 25,
+        duration: 0.5,
+        repeat: -1,
+        yoyo: true
+      })
+    }
+
+  }, [loading])
+
+
   return (
     <>
       <div className="overflow-hidden">
         <div className="container mx-auto p-4 h-screen w-full">
-          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center h-full gap-5">
+          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 h-5/6">
             <div className="md:space-y-5 socials flex md:flex-col space-x-4 md:space-x-0 md:space-y-4">
               <a
                 href="mailto:corbanigabriele@gmail.com"
@@ -86,6 +102,12 @@ export default function Hero() {
               </h1>
             </div>
           </div>
+          <div className='flex justify-center'>
+            <div className='bg-secondary-200 p-3 rounded-full icon'>
+              <ArrowDownIcon className="h-10 w-10 text-white " />
+            </div>
+          </div>
+
         </div>
       </div>
     </>

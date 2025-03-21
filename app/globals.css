@@ -12,10 +12,28 @@
   * {
     @apply font-josefin;
   }
+
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Chrome, Edge e Safari */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Firefox */
+  html {
+    scrollbar-width: none;
+  }
+  
+  /* Internet Explorer e Edge */
+  body {
+    -ms-overflow-style: none;
+  }
 }
 
-body {
-  overflow-x: hidden;
-}
+
+
 
 
