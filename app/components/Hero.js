@@ -108,7 +108,7 @@ export default function Hero({ loading }) {
                 CORBANI
               </h1>
             </div>
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
+            <div className="absolute bottom-36 md:bottom-12 left-1/2 -translate-x-1/2">
               <div className='bg-secondary-200 p-3 rounded-full icon'>
                 <ArrowDownIcon className="h-5 w-5 md:h-10 md:w-10 text-white" />
               </div>

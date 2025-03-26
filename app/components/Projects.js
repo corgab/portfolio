@@ -38,6 +38,7 @@ const Project = ({ name, img, repo, technologies, description, link }) => {
           fill
           className="object-cover object-top"
           placeholder='blur'
+          priority={true}
         />
       </div>
 

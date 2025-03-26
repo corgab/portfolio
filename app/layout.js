@@ -49,13 +49,17 @@ export const metadata = {
     'Gabriele Corbani',
     'Web Developer',
     'React',
+    'Vue',
+    'JavaScript',
+    'PHP',
+    'Tailwind',
     'Laravel',
     'Next.js',
     'Sviluppatore Web',
+    'Sviluppo Web',
     'Frontend',
     'Backend',
     'Full-stack',
-    'Sviluppo Software',
   ],
 
   icons: {
@@ -82,7 +86,7 @@ export const metadata = {
   authors: [
     {
       name: 'Gabriele Corbani',
-      url: 'https://gabriele-corbani.netlify.app/',
+      url: 'https://www.gabrielecorbani.dev/',
     },
   ],
 
@@ -90,7 +94,7 @@ export const metadata = {
   applicationName: 'Gabriele Corbani Portfolio',
 
   // Informazioni aggiuntive
-  metadataBase: new URL('https://gabriele-corbani.netlify.app/'),
+  metadataBase: new URL('https://gabrielecorbani.dev/'),
 };
 
 export default function RootLayout({ children }) {
