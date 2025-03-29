@@ -55,7 +55,7 @@ const Project = ({ name, img, repo, technologies, description, link }) => {
         {/* Tecnologie utilizzate */}
         <div className="mt-4 flex flex-wrap justify-center gap-2">
           {technologies.map((tech, index) => (
-            <div key={index} className="flex items-center bg-gray-800 rounded-full px-3 py-1">
+            <div key={index} className="flex items-center bg-primary-100 rounded-full px-3 py-1">
               <div className="relative w-5 h-5 mr-1">
                 <Image
                   src={techIcons[tech]}
@@ -73,14 +73,14 @@ const Project = ({ name, img, repo, technologies, description, link }) => {
         <div className="relative mt-4">
           {repo ? <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+            className="w-full px-4 py-2 bg-secondary-200 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300"
           >
             Scopri di più
           </button> :
             <Link
               href={link}
               target='_blank'
-              className="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300 block text-center"
+              className="w-full px-4 py-2 bg-secondary-200 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300 block text-center"
             >
               Scopri di più
             </Link>
@@ -121,7 +121,7 @@ const Project = ({ name, img, repo, technologies, description, link }) => {
 };
 
 
-export default function Projects({ loading }) {
+export default function Projects() {
 
   const container = useRef(null)
   const wrapper = useRef(null)
