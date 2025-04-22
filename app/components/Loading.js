@@ -3,12 +3,11 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
 
-const LoadingScreen = ({ onComplete, setLoading }) => {
+const LoadingScreen = () => {
   useGSAP(() => {
     const tl = gsap.timeline({
       onComplete: () => {
-        setLoading(false);
-        if (onComplete) onComplete();
+        tl.kill();
       },
     });
 
@@ -18,19 +17,19 @@ const LoadingScreen = ({ onComplete, setLoading }) => {
   }, []);
 
   return (
-    <div className="loading-screen fixed top-0 left-0 w-full h-full  bg-primary-200 z-50 flex flex-col items-center justify-center text-white overflow-hidden">
-      <div className="loading-text text-4xl opacity-0 translate-y-10 text-center">
+    <div className='loading-screen fixed top-0 left-0 w-full h-full  bg-primary-200 z-50 flex flex-col items-center justify-center text-white overflow-hidden'>
+      <div className='loading-text text-4xl opacity-0 translate-y-10 text-center'>
         <Image
-          src="/memoji.png"
+          src='/memoji.png'
           width={250}
           height={250}
-          alt="Gabriele Corbani - memoji"
+          alt='Gabriele Corbani - memoji'
           priority={true}
-        // preload="true"
+          // preload="true"
         />
-        <h6 className="">Caricamento...</h6>
+        <h6 className=''>Caricamento...</h6>
       </div>
-      <div className="loading-bar mt-4 w-0 h-2 inline-block bg-white rounded-full"></div>
+      <div className='loading-bar mt-4 w-0 h-2 inline-block bg-white rounded-full'></div>
     </div>
   );
 };
