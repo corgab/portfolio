@@ -25,11 +25,11 @@ const AboutContainer = () => {
         x: '50%',
         ease: 'none',
         scrollTrigger: {
-          trigger: el,
+          trigger: '.about-container',
           start: 'center center',
           end: 'center top',
           scrub: 2,
-          markers: true,
+          // markers: true,
         },
       });
     });
@@ -39,9 +39,9 @@ const AboutContainer = () => {
         x: '-50%',
         ease: 'none',
         scrollTrigger: {
-          trigger: el,
+          trigger: '.about-container',
           start: 'center center',
-          end: 'center top',
+          end: 'bottom top',
           scrub: 2,
           markers: true,
         },
@@ -50,7 +50,7 @@ const AboutContainer = () => {
   }, []);
 
   return (
-    <div className='bg-primary-200 overflow-x-hidden'>
+    <div className='about-container bg-primary-200 overflow-x-hidden'>
       <AboutSection alignment='right'>
         <h2>Frontend</h2>
         <div className='w-10 lg:w-28 h-1 mx-3 bg-white'></div>
