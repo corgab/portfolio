@@ -8,7 +8,6 @@ import LinkedInIcon from './LinkedInIcon';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
 import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,7 +17,6 @@ export default function Hero() {
     gsap.to('.name', {
       x: '50%',
       y: '-20%',
-      autoAlpha: 0.3,
       scrollTrigger: {
         trigger: '.hero-wrapper',
         start: 'center center',
@@ -32,7 +30,6 @@ export default function Hero() {
     gsap.to(['.socials', '.surname'], {
       x: '-50%',
       y: '-20%',
-      autoAlpha: 0.3,
       scrollTrigger: {
         trigger: '.hero-wrapper',
         start: 'center center',
