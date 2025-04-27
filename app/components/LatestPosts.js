@@ -14,10 +14,6 @@ export default function LatestPosts({ posts = [] }) {
     (context) => {
       const cards = context.selector('.post-card');
 
-      if (!cards.length) {
-        console.warn('Nessuna .post-card trovata');
-        return;
-      }
       gsap.from(cards, {
         opacity: 0,
         y: 100,

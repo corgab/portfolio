@@ -7,6 +7,7 @@ const LoadingScreen = () => {
   useGSAP(() => {
     const tl = gsap.timeline({
       onComplete: () => {
+        document.body.style.overflowY = 'scroll';
         tl.kill();
       },
     });

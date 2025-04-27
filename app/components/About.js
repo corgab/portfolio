@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = ({ alignment, children }) => {
   return (
-    <div className="border-b-2 border-primary-100">
+    <div className='border-b-2 border-primary-100'>
       <div
         className={`flex justify-center items-center font-bold text-2xl md:text-5xl	 lg:text-7xl text-white py-7 ${alignment}`}
       >
@@ -44,21 +44,21 @@ const AbountContainer = () => {
     });
   }, []);
   return (
-    <div className="bg-primary-200 overflow-x-hidden">
-      <AboutSection alignment="right">
+    <div className='bg-primary-200 overflow-x-hidden'>
+      <AboutSection alignment='right'>
         <h2>Frontend</h2>
-        <div className="w-10 lg:w-28 h-1 mx-3 bg-white"></div>
+        <div className='w-10 lg:w-28 h-1 mx-3 bg-white'></div>
         <h2>React & Vue</h2>
       </AboutSection>
-      <AboutSection alignment="left">
+      <AboutSection alignment='left'>
         <h2>Backend </h2>
-        <div className="w-10 lg:w-28 h-1 mx-3 bg-white"></div>
+        <div className='w-10 lg:w-28 h-1 mx-3 bg-white'></div>
         <h2>API Design</h2>
       </AboutSection>
-      <AboutSection alignment="right">
-        <h2>Efficienza</h2>
-        <div className="w-10 lg:w-28 h-1 mx-3 bg-white"></div>
-        <h2>Codice Veloce</h2>
+      <AboutSection alignment='right'>
+        <h2>Tailwind CSS</h2>
+        <div className='w-10 lg:w-28 h-1 mx-3 bg-white'></div>
+        <h2>Bootstrap</h2>
       </AboutSection>
     </div>
   );

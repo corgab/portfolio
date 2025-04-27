@@ -15,7 +15,7 @@ import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Project = ({ name, img, repo, technologies, description, link }) => {
+const Project = ({ name, img, technologies, description, link }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const techIcons = {
