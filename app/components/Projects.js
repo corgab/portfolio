@@ -16,8 +16,6 @@ import Link from 'next/link';
 gsap.registerPlugin(ScrollTrigger);
 
 const Project = ({ name, img, technologies, description, link }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
   const techIcons = {
     'Express.js':
       'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/express.svg',
@@ -35,7 +33,7 @@ const Project = ({ name, img, technologies, description, link }) => {
   };
 
   return (
-    <div className='w-[400px] h-[600px] bg-primary-200 text-white rounded-lg shadow-2xl  flex flex-col'>
+    <div className='project-card w-[400px] h-[600px] bg-primary-200 text-white rounded-lg shadow-2xl  flex flex-col'>
       {/* Immagine del progetto */}
       <div className='relative w-full h-48'>
         <Image
@@ -156,20 +154,89 @@ export default function Projects() {
   ];
 
   useGSAP(() => {
-    const tl = gsap.timeline({ paused: true });
-
-    tl.to('.wrapper', {
-      x: -(wrapper.current.clientWidth - container.current.clientWidth),
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: 'top top',
+        end: () => '+=' + wrapper.current.scrollWidth,
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
     });
 
-    ScrollTrigger.create({
-      animation: tl,
-      trigger: '.wrapper',
-      start: 'center center',
-      end: () => '+=3000',
-      scrub: 1,
-      pin: true,
-      // markers: true
+    tl.to(wrapper.current, {
+      x: -(wrapper.current.scrollWidth - container.current.offsetWidth),
+      ease: 'none',
+    });
+
+    gsap.utils.toArray('.project-card').forEach((card) => {
+      const trigger = ScrollTrigger.create({
+        trigger: card,
+        containerAnimation: tl,
+        start: 'left center',
+        end: 'right center',
+        scrub: true,
+        toggleActions: 'play reverse play reverse',
+        markers: true,
+        onLeave: () => {
+          gsap.killTweensOf(card);
+          gsap.to(card, {
+            opacity: 0.5,
+            y: 50,
+            scale: 0.8,
+            ease: 'power2.inOut',
+            duration: 0.6,
+          });
+        },
+        onLeaveBack: () => {
+          gsap.killTweensOf(card);
+          gsap.to(card, {
+            opacity: 0.5,
+            y: 50,
+            scale: 0.8,
+            ease: 'power2.inOut',
+            duration: 0.6,
+          });
+        },
+        onEnter: () => {
+          gsap.killTweensOf(card);
+          gsap.to(card, {
+            opacity: 1,
+            y: 0,
+            scale: 1.05,
+            ease: 'power2.out',
+            duration: 0.6,
+          });
+        },
+        onEnterBack: () => {
+          gsap.killTweensOf(card);
+          gsap.to(card, {
+            opacity: 1,
+            y: 0,
+            scale: 1.05,
+            ease: 'power2.out',
+            duration: 0.6,
+          });
+        },
+      });
+
+      gsap.fromTo(
+        card,
+        {
+          opacity: 0.5,
+          y: 50,
+          scale: 0.8,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 0.8,
+          ease: 'none',
+          scrollTrigger: trigger,
+        }
+      );
     });
   }, []);
 
@@ -181,18 +248,17 @@ export default function Projects() {
           ref={container}
         >
           <div
-            className='wrapper h-screen w-max flex gap-40 items-center py-40 '
+            className='h-screen w-max flex gap-40 items-center py-40 pr-[40vw] pl-[30vw]'
             ref={wrapper}
           >
-            {projects.map((proj, index) => (
+            {projects.map((proj, i) => (
               <Project
                 name={proj.name}
                 img={proj.img}
-                repo={proj.repo || ''}
                 technologies={proj.technologies}
                 description={proj.description}
                 link={proj.link || ''}
-                key={index}
+                key={i}
               />
             ))}
           </div>
