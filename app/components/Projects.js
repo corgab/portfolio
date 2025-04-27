@@ -179,7 +179,7 @@ export default function Projects() {
         end: 'right center',
         scrub: true,
         toggleActions: 'play reverse play reverse',
-        markers: true,
+        // markers: true,
         onLeave: () => {
           gsap.killTweensOf(card);
           gsap.to(card, {
