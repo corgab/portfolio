@@ -5,6 +5,7 @@ import Projects from './components/Projects';
 import Footer from './components/Footer';
 import LoadingScreen from './components/Loading';
 import LatestPosts from './components/LatestPosts';
+import Wrapper from './components/Wrapper';
 
 export default async function Home() {
   const URL = process.env.API_URL;
@@ -22,12 +23,15 @@ export default async function Home() {
   return (
     <>
       <LoadingScreen />
-      {/* <Navbar /> */}
-      <Hero />
-      <About />
-      <Projects />
-      <LatestPosts posts={posts.data.posts} />
-      <Footer />
+
+      <Wrapper>
+        {/* <Navbar /> */}
+        <Hero />
+        <About />
+        <Projects />
+        <LatestPosts posts={posts.data.posts} />
+        <Footer />
+      </Wrapper>
     </>
   );
 }

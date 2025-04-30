@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['dashboard.craftedhub.it'],
+    remotePatterns: [new URL('https://dashboard.craftedhub.it/**')],
   },
 };
 
