@@ -6,6 +6,7 @@
   .navlinks {
     @apply py-4 md:py-8 lg:py-12 uppercase text-transparent text-primary-200 tracking-widest;
   }
+
 }
 
 @layer base {
@@ -30,6 +31,14 @@
   /* Internet Explorer e Edge */
   body {
     -ms-overflow-style: none;
+  }
+
+  .button .shadow div {
+    transform-origin: bottom left;
+  }
+
+  .button .text div {
+    transform-origin: top left;
   }
 }
 
