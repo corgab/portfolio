@@ -12,13 +12,16 @@ export default function Wrapper({ children }) {
   useEffect(() => {
     // Se SmootherRef non esiste
     if (!smootherRef.current) {
-      // Crea SmootherRef
-      smootherRef.current = ScrollSmoother.create({
-        wrapper: '#smooth-wrapper',
-        content: '#smooth-content',
-        smooth: 1.5,
-        effects: true,
-      });
+      if (!('ontouchstart' in window)) {
+        /* Se l'utente non è da mobile
+        Crea SmootherRef*/
+        smootherRef.current = ScrollSmoother.create({
+          wrapper: '#smooth-wrapper',
+          content: '#smooth-content',
+          smooth: 1.5,
+          effects: true,
+        });
+      }
     }
   }, []);
 
