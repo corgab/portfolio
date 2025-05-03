@@ -17,8 +17,6 @@ export default function Footer() {
       const text = el.querySelector('.text');
       const shadow = el.querySelector('.shadow');
 
-      console.log(text);
-
       if (!text || !shadow) return;
 
       const splittedText = new SplitText(text, { type: 'chars' });

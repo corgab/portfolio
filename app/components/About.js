@@ -19,18 +19,20 @@ const AboutSection = ({ alignment, children }) => {
 };
 
 const AboutContainer = () => {
+  const scrollTrigger = {
+    trigger: '.about-container',
+    start: 'top center',
+    end: 'bottom top',
+    scrub: 2,
+    // markers: true,
+  };
+
   useGSAP(() => {
     gsap.utils.toArray('.left').forEach((el) => {
       gsap.to(el, {
         x: '50%',
         ease: 'none',
-        scrollTrigger: {
-          trigger: '.about-container',
-          start: 'center center',
-          end: 'center top',
-          scrub: 2,
-          // markers: true,
-        },
+        scrollTrigger,
       });
     });
 
@@ -38,13 +40,7 @@ const AboutContainer = () => {
       gsap.to(el, {
         x: '-50%',
         ease: 'none',
-        scrollTrigger: {
-          trigger: '.about-container',
-          start: 'center center',
-          end: 'bottom top',
-          scrub: 2,
-          // markers: true,
-        },
+        scrollTrigger,
       });
     });
   }, []);
