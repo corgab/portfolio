@@ -21,7 +21,7 @@ export default function Wrapper({ children }) {
         effects: true,
         normalizeScroll: true,
         ignoreMobileResize: true,
-        smoothTouch: 1,
+        smoothTouch: 0.1,
       });
     }
   }, []);
