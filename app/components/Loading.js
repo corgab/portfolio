@@ -2,8 +2,13 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 const LoadingScreen = () => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+  }, []);
+
   useGSAP(() => {
     const tl = gsap.timeline({
       onComplete: () => {

@@ -3,28 +3,28 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { useEffect, useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
 export default function Wrapper({ children }) {
   const smootherRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     // Se SmootherRef non esiste
     if (!smootherRef.current) {
-      if (!('ontouchstart' in window)) {
-        /* Se l'utente non è da mobile
-        Crea SmootherRef*/
-        smootherRef.current = ScrollSmoother.create({
-          wrapper: '#smooth-wrapper',
-          content: '#smooth-content',
-          smooth: 1.5,
-          effects: true,
-        });
-      }
+      //  Crea SmootherRef
+      smootherRef.current = ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 2,
+        effects: true,
+        normalizeScroll: true,
+        ignoreMobileResize: true,
+        smoothTouch: 1,
+      });
     }
   }, []);
-
   return (
     <div id='smooth-wrapper'>
       <div id='smooth-content'>{children}</div>

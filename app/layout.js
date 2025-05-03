@@ -114,7 +114,7 @@ export default function RootLayout({ children }) {
         />
       </Head>
       <body
-        className={`${josefin.className} ${satisfy.variable} font-josefin overflow-hidden`}
+        className={`${josefin.className} ${satisfy.variable} font-josefin`}
         suppressHydrationWarning
       >
         {children}
