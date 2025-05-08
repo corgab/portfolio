@@ -11,19 +11,16 @@ export default function Wrapper({ children }) {
   const smootherRef = useRef(null);
 
   useGSAP(() => {
-    // Se SmootherRef non esiste
-    if (!smootherRef.current) {
-      //  Crea SmootherRef
-      smootherRef.current = ScrollSmoother.create({
-        wrapper: '#smooth-wrapper',
-        content: '#smooth-content',
-        smooth: 2,
-        effects: true,
-        normalizeScroll: true,
-        ignoreMobileResize: true,
-        smoothTouch: 0.1,
-      });
-    }
+    //  Crea SmootherRef
+    smootherRef.current = ScrollSmoother.create({
+      wrapper: '#smooth-wrapper',
+      content: '#smooth-content',
+      smooth: 2,
+      effects: true,
+      normalizeScroll: true,
+      ignoreMobileResize: true,
+      smoothTouch: 0.1,
+    });
   }, []);
   return (
     <div id='smooth-wrapper'>
