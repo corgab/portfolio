@@ -9,16 +9,16 @@ import Wrapper from './components/Wrapper';
 
 export default async function Home() {
   const URL = process.env.API_URL;
-  const res = await fetch(`${URL}/api/tags/web-development`, {
+  const res = await fetch(`${URL}/api/posts?per_page=6`, {
     next: 86400,
   });
-
-  // console.log(res.json());
 
   if (!res.ok) {
     return null;
   }
   const posts = await res.json();
+
+  console.log(posts);
 
   return (
     <>
@@ -29,7 +29,7 @@ export default async function Home() {
         <Hero />
         <About />
         <Projects />
-        <LatestPosts posts={posts.data.posts} />
+        <LatestPosts posts={posts.data} />
         <Footer />
       </Wrapper>
     </>

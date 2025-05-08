@@ -1,10 +1,12 @@
 import Footer from '../components/Footer';
 import Wrapper from '../components/Wrapper';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default async function Blog() {
   const URL = process.env.API_URL;
-  const res = await fetch(`${URL}/api/posts?per_page=100`, {
+  // Aggiungere query per filtrare la categoria
+  const res = await fetch(`${URL}/api/posts?per_page=21`, {
     next: 86400,
   });
   if (!res.ok) {
@@ -15,7 +17,7 @@ export default async function Blog() {
 
   return (
     <Wrapper>
-      <div className='container mx-auto py-10 px-4'>
+      <div className='container py-10'>
         <section className='text-center mb-16'>
           <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold text-secondary-200 mb-6'>
             Il mio blog
@@ -36,31 +38,33 @@ export default async function Blog() {
         </section>
 
         <section className='py-10'>
-          <div className='grid md:grid-cols-2 gap-12'>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-12'>
             {posts.map((post) => (
-              <article
+              <Link
+                href={`/blog/${post.slug}`}
                 key={post.id}
-                className='flex flex-col gap-6 border-b pb-6'
               >
-                <div className='relative w-full aspect-[3/2] overflow-hidden rounded-xl'>
-                  <Image
-                    src={post.image}
-                    alt={`Anteprima: ${post.title}`}
-                    fill
-                    className='object-cover'
-                    sizes='(max-width: 768px) 100vw, 50vw'
-                    priority
-                  />
-                </div>
-                <div className='flex flex-col justify-center'>
-                  <h2 className='text-2xl font-semibold text-secondary-100 mb-2'>
-                    {post.title}
-                  </h2>
-                  <p className='text-primary-100 text-sm md:text-base line-clamp-6'>
-                    {post.description}
-                  </p>
-                </div>
-              </article>
+                <article className='flex flex-col gap-6'>
+                  <div className='relative w-full aspect-[3/2] overflow-hidden rounded-xl'>
+                    <Image
+                      src={post.image}
+                      alt={`Anteprima: ${post.title}`}
+                      fill
+                      className='object-cover'
+                      sizes='(max-width: 768px) 100vw, 50vw'
+                      priority
+                    />
+                  </div>
+                  <div className='flex flex-col justify-center'>
+                    <h2 className='text-2xl font-semibold text-secondary-100 mb-2'>
+                      {post.title}
+                    </h2>
+                    <p className='text-primary-100 text-sm md:text-base line-clamp-6'>
+                      {post.description}
+                    </p>
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
         </section>
