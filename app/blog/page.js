@@ -43,20 +43,20 @@ export default async function Blog() {
               <article key={post.id}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className='rounded-xl shadow hover:shadow-lg pt-3 px-2 flex flex-col gap-6'
+                  className='group rounded-xl shadow hover:shadow-lg pt-3 px-2 flex flex-col gap-6 duration-100'
                 >
                   <div className='relative w-full aspect-[3/2] overflow-hidden rounded-xl'>
                     <Image
                       src={post.image}
                       alt={`Anteprima: ${post.title}`}
                       fill
-                      className='object-cover'
-                      sizes='(max-width: 768px) 100vw, 50vw'
+                      className='object-cover object-top transition-transform duration-500 group-hover:scale-110'
+                      sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                       priority
                     />
                   </div>
                   <div className='flex flex-col justify-center'>
-                    <h2 className='text-2xl font-semibold text-secondary-100 mb-2'>
+                    <h2 className='text-2xl font-semibold text-secondary-200 mb-2 group-hover:text-secondary-100 duration-100'>
                       {post.title}
                     </h2>
                     <p className='text-primary-100 text-sm md:text-base line-clamp-6'>
