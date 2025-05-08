@@ -9,7 +9,7 @@ import Wrapper from './components/Wrapper';
 
 export default async function Home() {
   const URL = process.env.API_URL;
-  const res = await fetch(`${URL}/api/posts?per_page=6`, {
+  const res = await fetch(`${URL}/api/posts?per_page=3`, {
     next: 86400,
   });
 
