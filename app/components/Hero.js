@@ -8,9 +8,10 @@ import LinkedInIcon from './LinkedInIcon';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/all';
 import Link from 'next/link';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default function Hero() {
   useGSAP(() => {
@@ -47,6 +48,16 @@ export default function Hero() {
       yoyo: true,
     });
   }, []);
+
+  const arrowAnimate = () => {
+    if (!about) return;
+
+    gsap.to(window, {
+      scrollTo: '#about',
+      duration: 1,
+      ease: 'power2.inOut',
+    });
+  };
 
   return (
     <>
@@ -115,11 +126,18 @@ export default function Hero() {
             </div>
 
             {/* FRECCIA */}
-            <div className='absolute bottom-36 md:bottom-12 left-1/2 -translate-x-1/2'>
+            <Link
+              href='#'
+              className='absolute bottom-36 md:bottom-12 left-1/2 -translate-x-1/2'
+              onClick={(e) => {
+                e.preventDefault();
+                arrowAnimate(e);
+              }}
+            >
               <div className='bg-secondary-200 p-3 rounded-full icon'>
                 <ArrowDownIcon className='h-5 w-5 md:h-10 md:w-10 text-white' />
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
