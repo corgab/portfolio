@@ -1,7 +1,7 @@
 'use client';
 import {
   EnvelopeIcon,
-  DocumentIcon,
+  PhoneIcon,
   ArrowDownIcon,
 } from '@heroicons/react/24/solid';
 import LinkedInIcon from './LinkedInIcon';
@@ -10,6 +10,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/all';
 import Link from 'next/link';
+import { socials } from '@/utils/socials';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -66,49 +67,22 @@ export default function Hero() {
           <div className='flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 h-full'>
             {/* SOCIALS */}
             <div className='socials md:space-y-5 flex md:flex-col space-x-4 md:space-x-0 md:space-y-4'>
-              <Link
-                href='mailto:corbanigabriele@gmail.com'
-                className='rounded-full sm:rounded-3xl bg-secondary-200 p-3 block transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-3 flex md:flex-col items-center justify-center'
-                aria-label="Invia un'email a corbanigabriele@gmail.com"
-              >
-                <EnvelopeIcon
-                  className='text-white w-5 h-5 md:w-10 md:h-10'
-                  aria-hidden='true'
-                />
-                <span className='text-1xl text-white font-medium py-1 hidden md:inline'>
-                  email
-                </span>
-              </Link>
-
-              <Link
-                href='https://www.linkedin.com/in/gabriele-corbani-01a11a315/'
-                target='_blank'
-                className='rounded-full sm:rounded-3xl bg-secondary-200 p-3 block transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-3 flex md:flex-col items-center justify-center'
-                aria-label='Profilo LinkedIn di Gabriele Corbani'
-              >
-                <LinkedInIcon
-                  className='text-white w-5 h-5 md:w-10 md:h-10'
-                  aria-hidden='true'
-                />
-                <span className='text-1xl text-white font-medium py-1 hidden md:inline'>
-                  LinkedIn
-                </span>
-              </Link>
-
-              <Link
-                href='/Gabriele Corbani - Curriculum.pdf'
-                target='_blank'
-                className='rounded-full sm:rounded-3xl bg-secondary-200 p-3 block transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-3 flex md:flex-col items-center justify-center'
-                aria-label='Curriculum di Gabriele Corbani'
-              >
-                <DocumentIcon
-                  className='text-white w-5 h-5 md:w-10 md:h-10'
-                  aria-hidden='true'
-                />
-                <span className='text-1xl text-white font-medium py-1 hidden md:inline'>
-                  CV
-                </span>
-              </Link>
+              {socials.map((social, i) => (
+                <Link
+                  key={i}
+                  href={social.href}
+                  className='rounded-full sm:rounded-3xl bg-secondary-200 p-3 block transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-3 flex md:flex-col items-center justify-center'
+                  aria-label={social.label}
+                >
+                  <social.icon
+                    className='text-white w-5 h-5 md:w-10 md:h-10'
+                    aria-hidden='true'
+                  />
+                  <span className='text-1xl text-white font-medium py-1 hidden md:inline'>
+                    {social.name}
+                  </span>
+                </Link>
+              ))}
             </div>
 
             {/* NOME E COGNOME */}

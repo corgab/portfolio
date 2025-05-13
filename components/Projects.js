@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
-import { useRef, useState } from 'react';
+import { useRef, useMemo } from 'react';
 import gestioneUtenti from '@/public/projects/gestione-utenti.jpg';
 import cms from '@/public/projects/CMS.jpg';
 import deliveboo from '@/public/projects/deliveboo.png';
@@ -16,21 +16,25 @@ import Link from 'next/link';
 gsap.registerPlugin(ScrollTrigger);
 
 const Project = ({ name, img, technologies, description, link }) => {
-  const techIcons = {
-    'Express.js':
-      'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/express.svg',
-    'Node.js':
-      'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/nodedotjs.svg',
-    MySQL: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/mysql.svg',
-    'Vue.js': 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/vuedotjs.svg',
-    Laravel: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/laravel.svg',
-    Tailwind:
-      'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/tailwindcss.svg',
-    Bootstrap:
-      'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/bootstrap.svg',
-    'Next.js':
-      'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/nextdotjs.svg',
-  };
+  const techIcons = useMemo(
+    () => ({
+      'Express.js':
+        'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/express.svg',
+      'Node.js':
+        'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/nodedotjs.svg',
+      MySQL: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/mysql.svg',
+      'Vue.js':
+        'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/vuedotjs.svg',
+      Laravel: 'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/laravel.svg',
+      Tailwind:
+        'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/tailwindcss.svg',
+      Bootstrap:
+        'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/bootstrap.svg',
+      'Next.js':
+        'https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/nextdotjs.svg',
+    }),
+    []
+  );
 
   return (
     <div className='project-card w-[400px] h-[600px] bg-primary-200 text-white rounded-lg shadow-2xl  flex flex-col'>

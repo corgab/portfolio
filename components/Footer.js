@@ -4,6 +4,7 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
 import { useRef, useEffect } from 'react';
+import { socials } from '@/utils/socials';
 
 gsap.registerPlugin(SplitText);
 
@@ -57,15 +58,6 @@ export default function Footer() {
     });
   }, []);
 
-  const items = [
-    { name: 'e-mail', link: 'mailto:corbanigabriele@gmail.com' },
-    { name: 'curriculum', link: '/Gabriele Corbani - Curriculum.pdf' },
-    {
-      name: 'linkedin',
-      link: 'https://www.linkedin.com/in/gabriele-corbani-01a11a315/',
-    },
-  ];
-
   return (
     <div className='bg-primary-200 overflow-x-hidden'>
       <div className='mx-auto px-12 min-h-[50vh] md:min-h-[60vh] text-center text-white flex flex-col justify-between py-5 gap-y-10'>
@@ -99,20 +91,21 @@ export default function Footer() {
         </div>
 
         <ul className='grid grid-cols-1 sm:grid-cols-3 gap-4 '>
-          {items.map((item, i) => (
+          {socials.map((social, i) => (
             <li
               key={i}
               ref={(el) => (buttonRefs.current[i] = el)}
               className='button relative uppercase font-semibold text-lg cursor-pointer overflow-y-hidden '
             >
               <Link
-                href={item.link}
+                href={social.href}
                 target='_blank'
                 className='relative inline-block text-white'
+                aria-label={social.label}
               >
-                <span className='text block relative'>{item.name}</span>
+                <span className='text block relative'>{social.name}</span>
                 <span className='shadow text-secondary-200 absolute top-0 left-0'>
-                  {item.name}
+                  {social.name}
                 </span>
               </Link>
             </li>

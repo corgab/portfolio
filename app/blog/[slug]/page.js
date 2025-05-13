@@ -1,7 +1,7 @@
-import Wrapper from '@/app/components/Wrapper';
+import Wrapper from '@/components/Wrapper';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import Footer from '@/app/components/Footer';
+import Footer from '@/components/Footer';
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
