@@ -11,6 +11,7 @@ import gameCreator from '@/public/projects/game.jpg';
 import dcComics from '@/public/projects/dc.png';
 import craftedHub from '@/public/projects/craftedhub.png';
 import landing from '@/public/projects/simple-landingpage.jpg';
+import sitipronti from '@/public/projects/sitipronti.png';
 import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -100,6 +101,14 @@ export default function Projects() {
   const wrapper = useRef(null);
 
   const projects = [
+    {
+      name: 'SitiPronti',
+      img: sitipronti,
+      link: 'https://www.sitipronti.com/',
+      technologies: ['Next.js', 'Tailwind'],
+      description:
+        'Una landing page moderna e veloce  per la promozione di servizi digitali. Realizzata per offrire performance elevate e SEO ottimizzata.',
+    },
     {
       name: 'CraftedHub',
       img: craftedHub,
