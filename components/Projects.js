@@ -9,7 +9,6 @@ import cms from '@/public/projects/CMS.jpg';
 import deliveboo from '@/public/projects/deliveboo.png';
 import gameCreator from '@/public/projects/game.jpg';
 import dcComics from '@/public/projects/dc.png';
-import craftedHub from '@/public/projects/craftedhub.png';
 import landing from '@/public/projects/simple-landingpage.jpg';
 import sitipronti from '@/public/projects/sitipronti.png';
 import Link from 'next/link';
@@ -108,14 +107,6 @@ export default function Projects() {
       technologies: ['Next.js', 'Tailwind'],
       description:
         'Una landing page moderna e veloce  per la promozione di servizi digitali. Realizzata per offrire performance elevate e SEO ottimizzata.',
-    },
-    {
-      name: 'CraftedHub',
-      img: craftedHub,
-      link: 'https://www.craftedhub.it/',
-      technologies: ['Next.js', 'Laravel', 'Tailwind', 'Bootstrap', 'MySQL'],
-      description:
-        'Un Blog che parla di tecnologia, con funzionalità avanzate e design moderno',
     },
     {
       name: 'Gestione Utenti',

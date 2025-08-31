@@ -8,15 +8,15 @@ import LatestPosts from '../components/LatestPosts';
 import Wrapper from '../components/Wrapper';
 
 export default async function Home() {
-  const URL = process.env.API_URL;
-  const res = await fetch(`${URL}/api/posts?per_page=3`, {
-    next: 86400,
-  });
+  // const URL = process.env.API_URL;
+  // const res = await fetch(`${URL}/api/posts?per_page=3`, {
+  //   next: 86400,
+  // });
 
-  if (!res.ok) {
-    return null;
-  }
-  const posts = await res.json();
+  // if (!res.ok) {
+  //   return null;
+  // }
+  // const posts = await res.json();
 
   return (
     <>
@@ -27,7 +27,7 @@ export default async function Home() {
         <Hero />
         <About />
         <Projects />
-        <LatestPosts posts={posts.data} />
+        {/* <LatestPosts posts={posts.data} /> */}
         <Footer />
       </Wrapper>
     </>
